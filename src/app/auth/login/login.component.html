@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card p-5 box-shaddow bg-sec-theme">
+                <div class="card-body">
+
+                    <div class="text-center">
+                        <h3 class="text-theme-pri">Login</h3>
+                        <p>Login to your admin account to post a new blog</p>
+                    </div>
+
+                    <form #loginForm = ngForm (ngSubmit)='onSubmit(loginForm.value)'>
+                        <div class="form-group">
+                            <input 
+                            type="email"  
+                            class="form-control" 
+                            placeholder="Email" 
+                            name="email" 
+                            #Email="ngModel"
+                            ngModel
+                            required
+                            email
+                            [ngClass]="{'is-invalid':Email.touched && Email.invalid}"
+                            >
+                        </div>
+                        <div class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+                            <div *ngIf="Email.errors?.['required']">Email can not be empty</div>
+                            <div *ngIf="Email.errors?.['email']">Please Enter a valid email</div>
+                        </div>
+                        <div class="form-group mt-2">
+                            <input 
+                            type="password"  
+                            class="form-control" 
+                            placeholder="Password" 
+                            name="password" 
+                            #Password="ngModel"
+                            ngModel
+                            required
+                            
+                            [ngClass]="{'is-invalid':Password.touched && Password.invalid}"
+                            >
+                        </div>
+
+                        <div class="alert alert-danger" *ngIf="Password.touched && Password.invalid">Password required</div>
+                        <div class="d-grid gap-2 col-6 mx-auto mt-2">
+                            <button class="btn btn-info" type="submit" [disabled]="loginForm.invalid">Login</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

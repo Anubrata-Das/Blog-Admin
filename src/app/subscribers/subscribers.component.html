@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="bg-sec-theme card box-shaddow" style="background-color: var(--sec-color);">
+                <div class="card-body text-center">
+                    <h3 class="text-theme-pri">All Subscribers</h3>
+                    <p>From here you can manage your subscribers</p>
+
+                    
+                    <button class="btn btn-warning ms-4 " routerLink="/">Back to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card box-shaddow">
+                <div class="card-body">
+                    <table class="table row-border hover">
+                        <thead>
+                            <tr>
+                                <th width="10">No</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                              
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let ss of subscriberArray; let i=index">
+                                <td width="10">{{i+1}}</td>
+                                
+                                <td width="200">{{ss.data.name}}</td>
+                                
+                                <td >{{ss.data.email}}</td>
+                                
+                                <td > 
+                                    
+                                    <button class="btn btn-sm btn-danger ms-2" 
+                                    (click)="onDelete(ss.id)"
+                                    >Delete</button>
+
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
